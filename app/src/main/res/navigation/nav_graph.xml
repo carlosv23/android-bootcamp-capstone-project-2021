@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/availableBooksragment">
+
+    <fragment
+        android:id="@+id/availableBooksragment"
+        android:name="com.example.cryptochallenge.ui.fragment.AvailableBooksFragment"
+        android:label="fragment_available_booksragment"
+        tools:layout="@layout/fragment_available_books" >
+        <action
+            android:id="@+id/action_availableBooksragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.cryptochallenge.ui.fragment.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="bookName"
+            app:argType="string" />
+    </fragment>
+</navigation>
