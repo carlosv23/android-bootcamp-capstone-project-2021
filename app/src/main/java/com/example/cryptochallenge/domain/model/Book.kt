@@ -1,9 +1,13 @@
 package com.example.cryptochallenge.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "book")
 data class Book(
     @SerializedName("book")
+    @PrimaryKey
     val name: String,
     @SerializedName("minimum_amount")
     val min_amount: Double,

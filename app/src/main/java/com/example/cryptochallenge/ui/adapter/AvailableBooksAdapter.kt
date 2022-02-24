@@ -1,6 +1,5 @@
 package com.example.cryptochallenge.ui.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -16,7 +15,6 @@ class AvailableBooksAdapter(val adapterOnClick : (Any) -> Unit) :
     ListAdapter<Book, AvailableBooksAdapter.AvailableBookViewHolder>(DIFF) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AvailableBookViewHolder {
-
         return LayoutInflater.from(parent.context)
             .let { layoutInflater ->
                 AvailablebookItemBinding.inflate(layoutInflater, parent, false)

@@ -6,41 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.DetailsFragment">
 
-
     <ImageView
         android:id="@+id/cryptoDetail_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:contentDescription="@string/cryptoImageDetails"
 
+        android:contentDescription="@string/cryptoImageDetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/highTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="8dp"
-        android:visibility="visible"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        style="@style/details_text"
+        android:layout_marginStart="64dp"
         app:layout_constraintStart_toEndOf="@+id/cryptoDetail_imageView"
         app:layout_constraintTop_toTopOf="@+id/cryptoDetail_imageView"
-        tools:text="@string/high" />
+        app:layout_constraintVertical_bias="0.0"
+        android:text="@string/high" />
 
     <TextView
         android:id="@+id/high_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ask_recyclerView"
+        style="@style/details_text"
+        app:layout_constraintBottom_toBottomOf="@+id/cryptoDetail_imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toEndOf="@+id/highTitle"
         app:layout_constraintTop_toTopOf="@+id/highTitle"
         app:layout_constraintVertical_bias="0.0"
@@ -48,96 +40,81 @@
 
     <TextView
         android:id="@+id/lowTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        style="@style/details_text"
+        android:layout_marginStart="64dp"
         android:text="@string/low"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/highTitle" />
+        app:layout_constraintBottom_toBottomOf="@+id/cryptoDetail_imageView"
+        app:layout_constraintStart_toEndOf="@+id/cryptoDetail_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/highTitle"
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/low_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ask_recyclerView"
+        style="@style/details_text"
+        app:layout_constraintBottom_toBottomOf="@+id/lowTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toEndOf="@+id/highTitle"
         app:layout_constraintTop_toTopOf="@+id/lowTitle"
         app:layout_constraintVertical_bias="0.0"
         tools:text="1009.00" />
 
-
     <TextView
         android:id="@+id/volumeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/details_text"
+        android:layout_marginTop="36dp"
         android:text="@string/volume"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ask_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cryptoDetail_imageView"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toBottomOf="@+id/cryptoDetail_imageView" />
 
     <TextView
         android:id="@+id/volume_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="1000.00"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ask_recyclerView"
+        app:layout_constraintBottom_toBottomOf="@+id/volumeTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toEndOf="@+id/volumeTitle"
         app:layout_constraintTop_toTopOf="@+id/volumeTitle"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:text="1000.00" />
 
     <TextView
         android:id="@+id/askTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
         android:text="@string/ask"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="@dimen/order_list_text_title_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ask_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volumeTitle"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintTop_toBottomOf="@+id/volumeTitle" />
 
     <TextView
         android:id="@+id/bidsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="@string/bids"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="@dimen/order_list_text_title_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bids_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/volumeTitle"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toEndOf="@+id/askTitle"
+        app:layout_constraintTop_toBottomOf="@+id/volumeTitle" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ask_recyclerView"
         android:layout_width="200dp"
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/askTitle"
+         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bids_recyclerView"
@@ -145,10 +122,9 @@
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ask_recyclerView"
-
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/bidsTitle"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_list_size">16sp</dimen>
+    <dimen name="top_margin_title_list">52sp</dimen>
+    <dimen name="margin_start_text_item_list">12sp</dimen>
+    <dimen name="width_text_item_list">80sp</dimen>
+    <dimen name="height_text_item_list">38sp</dimen>
+    <dimen name="image_size">100dp</dimen>
+    <dimen name="order_list_text_value_size">18dp</dimen>
+    <dimen name="order_list_text_title_size">24dp</dimen>
+    <dimen name="order_list_item_witdh">180dp</dimen>
+    <dimen name="bitso_image_margin_left">5dp</dimen>
+    <dimen name="margin">12dp</dimen>
+    <dimen name="details_text_size">24dp</dimen>
+</resources>

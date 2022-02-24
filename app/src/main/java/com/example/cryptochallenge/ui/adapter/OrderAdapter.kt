@@ -37,7 +37,6 @@ class OrderAdapter: ListAdapter<Order, OrderAdapter.OrderViewHolder>(DIIF_CALL){
     inner class OrderViewHolder(private var binding: OrderItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: Order){
             binding.apply {
-                bookItemTextView.text = item.book
                 val currency = item.getCurrency()
                 priceItemTextView.text = root.context.getString(R.string.currency_display, item.price, currency )
                 amountItemTextView.text = root.context.getString(R.string.currency_display, item.amount, currency )
