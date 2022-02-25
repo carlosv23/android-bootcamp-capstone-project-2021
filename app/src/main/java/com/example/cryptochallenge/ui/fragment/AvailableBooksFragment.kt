@@ -1,11 +1,11 @@
 package com.example.cryptochallenge.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,9 +25,9 @@ class AvailableBooksFragment : Fragment() {
 
     private val availableBooksViewModel: AvailableBooksViewModel by viewModels()
 
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAvailableBooksBinding.inflate(inflater, container, false)
@@ -44,7 +44,7 @@ class AvailableBooksFragment : Fragment() {
             availableBookAdapter.submitList(it)
         })
         availableBooksViewModel.error.observe(viewLifecycleOwner, {
-            Toast.makeText(context,"Something went wrong: $it", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Something went wrong: $it", Toast.LENGTH_LONG).show()
         })
     }
 
@@ -56,8 +56,8 @@ class AvailableBooksFragment : Fragment() {
         }
     }
 
-    private fun onClickRecycler(item: Any){
-        if(item is Book){
+    private fun onClickRecycler(item: Any) {
+        if (item is Book) {
             val action = AvailableBooksFragmentDirections
                 .actionAvailableBooksragmentToDetailsFragment(item.name)
             this.findNavController().navigate(action)
@@ -68,5 +68,4 @@ class AvailableBooksFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

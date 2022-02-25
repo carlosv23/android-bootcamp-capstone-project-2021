@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class RemoteBitsoDataSourceImpl @Inject constructor(
     private val service: BitsoService
-): RemoteBitsoDataSource {
+) : RemoteBitsoDataSource {
     override fun getAvailableBooks(): Single<AvailableBooks>? {
         return service.getAvailableBooks()
     }

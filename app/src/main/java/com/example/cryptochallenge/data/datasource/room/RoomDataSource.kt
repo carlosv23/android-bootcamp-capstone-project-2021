@@ -22,6 +22,4 @@ interface RoomDataSource {
     fun getBidOrders(book: String): Single<List<Order>>?
     fun removeBidOrders(book: String)
     fun removeOrders(book: String)
-
-
 }

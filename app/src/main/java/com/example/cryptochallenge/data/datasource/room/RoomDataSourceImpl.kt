@@ -13,7 +13,7 @@ class RoomDataSourceImpl @Inject constructor(
     private val bookDao: BookDao,
     private val orderDao: OrderDao,
     private val tickerDataDao: TickerDataDao
-): RoomDataSource {
+) : RoomDataSource {
     override fun getAllBooks(): Single<List<Book>>? {
         return bookDao.getAllBooks()
     }
@@ -32,10 +32,9 @@ class RoomDataSourceImpl @Inject constructor(
 
     override fun insertOrders(askList: List<Order>, bidsList: List<Order>) {
         askList.forEach { a -> a.isAsk = true }
-        bidsList.forEach{b -> b.isAsk = false}
+        bidsList.forEach { b -> b.isAsk = false }
         orderDao.insertAll(askList + bidsList)
     }
-
 
     override fun getAskOrders(book: String): Single<List<Order>>? {
         return orderDao.getAskByBookName(book)
@@ -60,6 +59,4 @@ class RoomDataSourceImpl @Inject constructor(
     override fun removeOrders(book: String) {
         orderDao.deleteOrderByBookName(book)
     }
-
-
 }

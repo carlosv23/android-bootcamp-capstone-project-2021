@@ -10,8 +10,8 @@ import com.example.cryptochallenge.domain.model.Order
 import com.example.cryptochallenge.domain.model.TickerData
 
 @Database(entities = [Book::class, Order::class, TickerData::class], version = 1)
-abstract class AppDatabase : RoomDatabase(){
-    abstract fun getBookDao():BookDao
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun getBookDao(): BookDao
     abstract fun getOrderDao(): OrderDao
     abstract fun getTickerDataDao(): TickerDataDao
 }

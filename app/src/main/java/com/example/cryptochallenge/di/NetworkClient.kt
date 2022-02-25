@@ -1,23 +1,21 @@
 package com.example.cryptochallenge.di
 
+import android.content.Context
 import android.util.Log
 import com.example.cryptochallenge.BuildConfig
 import com.example.cryptochallenge.data.service.BitsoService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
-import okhttp3.internal.addHeaderLenient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Header
-import java.net.HttpCookie
 import javax.inject.Singleton
 
 @Module
@@ -37,7 +35,7 @@ object NetworkClient {
 
     @Singleton
     @Provides
-    fun getInterceptor(): Interceptor = object: Interceptor{
+    fun getInterceptor(): Interceptor = object : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
             val request = chain.request()
             val request2 = request.newBuilder().addHeader("User-Agent", "MyBitsoApp").build()
@@ -60,4 +58,8 @@ object NetworkClient {
         .addInterceptor(getOkHttpInterceptor())
         .addInterceptor(getInterceptor())
         .build()
+
+    @Singleton
+    @Provides
+    fun getOnlineState(@ApplicationContext context: Context) = OnlineState(context)
 }

@@ -3,7 +3,6 @@ package com.example.cryptochallenge.di
 import android.content.Context
 import androidx.room.Room
 import com.example.cryptochallenge.data.db.AppDatabase
-import com.example.cryptochallenge.data.preferences.PrefRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +16,7 @@ object RoomClient {
 
     @Singleton
     @Provides
-    fun getDB(@ApplicationContext appContext: Context): AppDatabase = synchronized(this){
+    fun getDB(@ApplicationContext appContext: Context): AppDatabase = synchronized(this) {
         Room.databaseBuilder(
             appContext,
             AppDatabase::class.java, "hero_db"
@@ -36,5 +35,4 @@ object RoomClient {
     @Singleton
     @Provides
     fun getTickerDataDao(appDatabase: AppDatabase) = appDatabase.getTickerDataDao()
-
 }

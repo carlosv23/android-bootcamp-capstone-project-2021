@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object SharedPreferencesModule {
-    //Shared Preferences Repository
+    // Shared Preferences Repository
     @Singleton
     @Provides
     fun getSharedRepository(@ApplicationContext appContext: Context) = PrefRepository(appContext)

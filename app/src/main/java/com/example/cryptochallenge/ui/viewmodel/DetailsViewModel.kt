@@ -1,21 +1,16 @@
 package com.example.cryptochallenge.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.cryptochallenge.data.datasource.remote.RemoteBitsoDataSource
 import com.example.cryptochallenge.data.repository.BitsoRepository
-import com.example.cryptochallenge.domain.model.Order
-import com.example.cryptochallenge.domain.model.OrderBook
 import com.example.cryptochallenge.domain.model.PayloadOrder
 import com.example.cryptochallenge.domain.model.TickerData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -55,7 +50,6 @@ class DetailsViewModel @Inject constructor(
         _tickerData.postValue(tickerData)
     }
 
-
     private fun onRequestError(t: Throwable) {
         _error.postValue(t.message)
     }
@@ -64,7 +58,7 @@ class DetailsViewModel @Inject constructor(
         repo.getOrderBook(book)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe( this::onOrderBookSuccess, this::onRequestError)
+            ?.subscribe(this::onOrderBookSuccess, this::onRequestError)
             ?.let { disposable.add(it) }
     }
 
@@ -76,6 +70,4 @@ class DetailsViewModel @Inject constructor(
         disposable.dispose()
         super.onCleared()
     }
-
-
 }

@@ -21,5 +21,4 @@ interface BookDao {
 
     @Delete
     suspend fun delete(book: Book)
-
 }

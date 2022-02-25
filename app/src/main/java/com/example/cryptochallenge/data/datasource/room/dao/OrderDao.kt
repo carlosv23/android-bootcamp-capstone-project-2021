@@ -29,6 +29,4 @@ interface OrderDao {
 
     @Query("DELETE FROM `order` WHERE book = :book AND isAsk = 'false'")
     fun deleteBidsByBookName(book: String)
-
-
 }

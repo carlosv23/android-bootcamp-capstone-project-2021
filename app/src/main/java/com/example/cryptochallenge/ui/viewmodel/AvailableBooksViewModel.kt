@@ -3,7 +3,6 @@ package com.example.cryptochallenge.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cryptochallenge.data.datasource.remote.RemoteBitsoDataSource
 import com.example.cryptochallenge.data.repository.BitsoRepository
 import com.example.cryptochallenge.domain.model.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -56,6 +55,4 @@ class AvailableBooksViewModel @Inject constructor(
         disposable.dispose()
         super.onCleared()
     }
-
-
 }

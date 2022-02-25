@@ -1,10 +1,5 @@
 package com.example.cryptochallenge.domain.model.converter
 
-import androidx.room.TypeConverter
-import com.example.cryptochallenge.domain.model.Book
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-
 class DataConverter {
 
     /*
@@ -22,7 +17,4 @@ class DataConverter {
         return gson.fromJson(value, type)
     }
      */
-
-
-
-    }
+}

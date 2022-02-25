@@ -1,11 +1,11 @@
 package com.example.cryptochallenge.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,13 +26,13 @@ class DetailsFragment : Fragment() {
     private lateinit var askAdapter: OrderAdapter
     private lateinit var bidAdapter: OrderAdapter
 
-
     private val detailsViewModel: DetailsViewModel by viewModels()
 
     private val detailsArgs by navArgs<DetailsFragmentArgs>()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
@@ -76,31 +76,29 @@ class DetailsFragment : Fragment() {
         })
     }
 
-    private fun bindTicker(tickerData: TickerData){
+    private fun bindTicker(tickerData: TickerData) {
         binding.apply {
 
             val baseCurrency = tickerData.book.split("_")[0]
-            val resImg = root.context.resources.getIdentifier(baseCurrency, "drawable",
+            val resImg = root.context.resources.getIdentifier(
+                baseCurrency, "drawable",
                 root.context.packageName
             )
-            //TODO: change it to something more "kotlin"
-            if(resImg>0){
+            // TODO: change it to something more "kotlin"
+            if (resImg> 0) {
                 cryptoDetailImageView.setImageResource(resImg)
-            }else{
+            } else {
                 cryptoDetailImageView.setImageResource(R.drawable.unknow)
             }
 
             highTextView.text = tickerData.high.formatCurrency()
             lowTextView.text = tickerData.low.formatCurrency()
             volumeTextView.text = tickerData.volume.formatCurrency()
-
         }
     }
-
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
     }
-
 }

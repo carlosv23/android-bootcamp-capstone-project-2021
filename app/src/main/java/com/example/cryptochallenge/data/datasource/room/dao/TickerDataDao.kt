@@ -18,5 +18,4 @@ interface TickerDataDao {
 
     @Delete
     fun delete(tickerData: TickerData)
-
 }

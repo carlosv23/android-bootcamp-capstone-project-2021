@@ -11,7 +11,7 @@ import com.example.cryptochallenge.domain.model.Book
 import com.example.cryptochallenge.getBaseCurrency
 import com.example.cryptochallenge.getCurrency
 
-class AvailableBooksAdapter(val adapterOnClick : (Any) -> Unit) :
+class AvailableBooksAdapter(val adapterOnClick: (Any) -> Unit) :
     ListAdapter<Book, AvailableBooksAdapter.AvailableBookViewHolder>(DIFF) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AvailableBookViewHolder {
@@ -40,28 +40,26 @@ class AvailableBooksAdapter(val adapterOnClick : (Any) -> Unit) :
         fun bind(item: Book) {
             binding.apply {
                 val currency = item.getCurrency()
-                val resImg = root.context.resources.getIdentifier(item.getBaseCurrency(), "drawable",
+                val resImg = root.context.resources.getIdentifier(
+                    item.getBaseCurrency(), "drawable",
                     root.context.packageName
                 )
-                //TODO: change it to something more "kotlin"
-                if(resImg>0){
+                // TODO: change it to something more "kotlin"
+                if (resImg> 0) {
                     cyptoImageView.setImageResource(resImg)
-                }else{
+                } else {
                     cyptoImageView.setImageResource(R.drawable.unknow)
                 }
 
-                minAmountText.text = root.context.getString(R.string.currency_display, item.min_amount, currency )
-                maxAmountText.text = root.context.getString(R.string.currency_display, item.max_amount, currency )
-                minPriceText.text = root.context.getString(R.string.currency_display, item.min_price, currency )
-                maxPriceText.text = root.context.getString(R.string.currency_display, item.max_price, currency )
-                minValueText.text = root.context.getString(R.string.currency_display, item.min_value, currency )
-                maxValueText.text = root.context.getString(R.string.currency_display, item.max_value, currency )
-                //Click listener
+                minAmountText.text = root.context.getString(R.string.currency_display, item.min_amount, currency)
+                maxAmountText.text = root.context.getString(R.string.currency_display, item.max_amount, currency)
+                minPriceText.text = root.context.getString(R.string.currency_display, item.min_price, currency)
+                maxPriceText.text = root.context.getString(R.string.currency_display, item.max_price, currency)
+                minValueText.text = root.context.getString(R.string.currency_display, item.min_value, currency)
+                maxValueText.text = root.context.getString(R.string.currency_display, item.max_value, currency)
+                // Click listener
                 availableBookItemCard.setOnClickListener { adapterOnClick(item) }
             }
         }
-
-
-
     }
 }
