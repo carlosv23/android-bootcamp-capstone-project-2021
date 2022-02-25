@@ -26,37 +26,37 @@ class BitsoRepositoryImpl @Inject constructor(
         //TODO: Remove harcoded strings... "lastUpdate" and "_book"
         val isUpdated = sharedPreferences.isDataUpdated("lastUpdate")
         val isOnline = onlineState.isOnline()
-        if (isOnline && (isUpdated == 1 || isUpdated == -1)) {
+        return if (isOnline && (isUpdated == 1 || isUpdated == -1)) {
             sharedPreferences.updatelLastDate()
             Log.d("Test", "NETWORK CALL***********************")
-            return remoteBitsoDataSource.getAvailableBooks()?.map {
+            remoteBitsoDataSource.getAvailableBooks()?.map {
                 roomDataSource.insertAll(it.books)
                 it.books
             }
         } else if (!isOnline && isUpdated == -1) {
-            return Single.error(DBDataNotFound())
+            Single.error(DBDataNotFound())
         } else {
             Log.d("Test", "DATABASE (ROOM)***********************")
-            return roomDataSource.getAllBooks()
+            roomDataSource.getAllBooks()
         }
     }
 
     override fun getTicker(book: String): Single<TickerData>? {
         val isUpdated = sharedPreferences.isDataUpdated(book)
         val isOnline = onlineState.isOnline()
-        if (isOnline && (isUpdated == 1 || isUpdated == -1)) {
+        return if (isOnline && (isUpdated == 1 || isUpdated == -1)) {
             Log.d("TestTicker", "NETWORK CALL***********************")
-            return remoteBitsoDataSource.getTicker(book)?.map {
+            sharedPreferences.updateDatalLastDate(book)
+            remoteBitsoDataSource.getTicker(book)?.map {
                 roomDataSource.insertTickerData(it)
                 it
             }
         } else if (!isOnline && isUpdated == -1) {
-            return Single.error(DBDataNotFound())
+            Single.error(DBDataNotFound())
         } else {
             Log.d("TestTicker", "DATABASE (ROOM)***********************")
-            return roomDataSource.getTickerDataByBook(book)
+            roomDataSource.getTickerDataByBook(book)
         }
-
     }
 
     override fun getOrderBook(book: String): Single<PayloadOrder>? {

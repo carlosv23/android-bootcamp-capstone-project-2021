@@ -36,7 +36,7 @@ class PrefRepository(val context: Context) {
         Log.d("Test", "Date: " + date.toString())
         Log.d("Test", "LastUpdate: " + lastUpdate.toString())
         Log.d("Test", "result: $result")
-        if(lastUpdate == 0L ){ return -1}
+        if(lastUpdate == 0L){ return -1}
         else if(result > 3600) {return 1}
         else return 0
     }
