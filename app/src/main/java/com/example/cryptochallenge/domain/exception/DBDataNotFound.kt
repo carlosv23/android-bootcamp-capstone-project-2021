@@ -1,4 +1,4 @@
-package com.example.cryptochallenge.domain.model.exceptions
+package com.example.cryptochallenge.domain.exception
 
 
 import java.lang.Exception

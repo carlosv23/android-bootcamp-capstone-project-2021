@@ -9,15 +9,14 @@ import com.example.cryptochallenge.domain.model.Book
 import com.example.cryptochallenge.domain.model.Order
 import com.example.cryptochallenge.domain.model.PayloadOrder
 import com.example.cryptochallenge.domain.model.TickerData
-import com.example.cryptochallenge.domain.model.exceptions.DBDataNotFound
+import com.example.cryptochallenge.domain.exception.DBDataNotFound
 import io.reactivex.Single
-import java.io.IOException
-import java.util.*
 import javax.inject.Inject
 
 class BitsoRepositoryImpl @Inject constructor(
     private val remoteBitsoDataSource: RemoteBitsoDataSource,
     private val roomDataSource: RoomDataSource,
+    //TODO: make an interface for SharedPreferences and OnlineState
     private val sharedPreferences: PrefRepository,
     private val onlineState: OnlineState
 ) : BitsoRepository {
